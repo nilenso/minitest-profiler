@@ -32,7 +32,3 @@ module Minitest
     end
   end
 end
-
-class ActiveSupport::TestCase
-  include Minitest::Profiler
-end
