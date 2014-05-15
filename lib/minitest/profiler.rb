@@ -1,4 +1,6 @@
 require "minitest/profiler/version"
+require 'active_support'
+require 'minitest'
 
 module Minitest
   module Profiler
@@ -19,11 +21,13 @@ module Minitest
     end
 
     Minitest.after_run do
+     puts
      puts "-----------------------------------------"
      puts "Timing Information for the Last Test Run"
      puts "-----------------------------------------"
      puts
      puts "Time, Test Name"
+     puts
      @@minitest_profiler_report.sort_by { |timing| timing[:time] }.reverse.each { |timing| puts "#{timing[:time]}, #{timing[:name]}" }
     end
   end
